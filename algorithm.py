@@ -67,8 +67,8 @@ def proofAlgorithm(txt):
   #Se itera sobre el rango de las posibles extensiones de los números
   for i in range(12, 19+1): 
     for subt in subString(txt, i):
-  #Dado que los números actuales de tarjetas usan como primer número entre 3 y 6
-      if AlgorLuhn(subt) and int(subt[0])>= 3 and int(subt[0])<= 6: 
+  #Dado que los números actuales de tarjetas usan como primer número entre 3 y 6, además se verifica el BIN
+      if AlgorLuhn(subt) and int(subt[0])>= 3 and int(subt[0])<= 6 and info_binlist(subt[:6]): 
         return True
   return False
 
