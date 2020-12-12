@@ -1,5 +1,7 @@
 import cv2
 import pytesseract
+from binlist import BIN
+import requests
 
 
 def getNumeric(string):
@@ -44,6 +46,20 @@ def AlgorLuhn(cardNo):
 	else:
 		return False
 
+def info_binlist(numero):
+  bin_n = numero
+  url="https://lookup.binlist.net/" + bin_n
+
+  try:
+    req=requests.get(url, timeout =0.3)
+    if (req.status_code==200):
+      p = req.json()
+      return True
+    else:
+      return False
+
+  except:
+    print("error")
 def proofAlgorithm(txt):
   #Se realiza esta validación dado que los números de tarjeta con menos digitos que se usan actualmente tienen 12
   if len(txt) < 12:  
