@@ -9,4 +9,4 @@ Pytesseract
 
 Binlist
 
-Proof on Ubuntu and Colab.
+Proof on Ubuntu.
